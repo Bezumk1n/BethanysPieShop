@@ -12,8 +12,8 @@ namespace BethanysPieShop
 
             // Регистрируем сервисы
             // Для работы с репозиториями используем Scoped
-            builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
-            builder.Services.AddScoped<IPieRepository, MockPieRepository>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<IPieRepository, PieRepository>();
 
             // Включаем MVC
             builder.Services.AddControllersWithViews();

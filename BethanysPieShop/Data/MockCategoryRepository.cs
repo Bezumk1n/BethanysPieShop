@@ -4,7 +4,7 @@ namespace BethanysPieShop.Data
 {
     public class MockCategoryRepository : ICategoryRepository
     {
-        public IEnumerable<Category> AllCategories =>
+        public IEnumerable<Category> AllCategories() =>
             new List<Category>
             {
                 new Category{CategoryId=Guid.NewGuid(), CategoryName="Fruit pies", Description="All-fruity pies"},

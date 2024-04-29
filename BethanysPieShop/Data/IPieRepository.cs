@@ -4,8 +4,8 @@ namespace BethanysPieShop.Persistance
 {
     public interface IPieRepository
     {
-        IEnumerable<Pie> AllPies { get; }
-        IEnumerable<Pie> PiesOfTheWeek { get; }
-        Pie GetPieById(Guid pieId);
+        IEnumerable<Pie> AllPies();
+        IEnumerable<Pie> PiesOfTheWeek();
+        Pie? GetPieById(Guid pieId);
     }
 }
