@@ -1,4 +1,5 @@
 ﻿using BethanysPieShop.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BethanysPieShop.Data
 {
@@ -31,8 +32,8 @@ namespace BethanysPieShop.Data
         private static Dictionary<string, Category>? categories;
         public static void Seed(IApplicationBuilder applicationBuilder)
         { 
-
             BethanysPieShopDbContext context = applicationBuilder.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<BethanysPieShopDbContext>();
+            context.Database.Migrate();
             if (!context.Categories.Any())
             {
                 context.Categories.AddRange(Categories.Select(c => c.Value));
