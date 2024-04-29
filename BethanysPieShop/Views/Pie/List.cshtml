@@ -1,12 +1,12 @@
-﻿@using BethanysPieShop.ViewModels
-@model PieListViewModel
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Bethany's Pie Shop</title>
-</head>
-<body>
+﻿@model PieListViewModel
+
+@* Указание в какой файл шаблона должно встроиться это тело*@
+@* Если файл шаблона один на все приложение, то в этом случае указание на шаблон можно вынести 
+в отдельный файл _ViewStart.cshtml, который должен находиться в папке Views *@
+@* @{
+    Layout = "_Layout";
+} *@
+
     <h1>
         @Model.CurrentCategory
     </h1>
@@ -18,6 +18,3 @@
             <h4>@pie.Category.CategoryName</h4>
         </div>
     }
-
-</body>
-</html>
