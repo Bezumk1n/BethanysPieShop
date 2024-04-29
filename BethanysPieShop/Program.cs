@@ -32,6 +32,8 @@ namespace BethanysPieShop
                 app.UseDeveloperExceptionPage();
             app.MapDefaultControllerRoute();
 
+            // Вызываем методнаполнения БД
+            DbInitializer.Seed(app);
             app.Run();
         }
     }
