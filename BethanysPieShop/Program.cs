@@ -1,5 +1,6 @@
 using BethanysPieShop.Data;
 using BethanysPieShop.Persistance;
+using Microsoft.EntityFrameworkCore;
 
 namespace BethanysPieShop
 {
@@ -16,6 +17,12 @@ namespace BethanysPieShop
 
             // Включаем MVC
             builder.Services.AddControllersWithViews();
+
+            // Регистрируем DbContext
+            builder.Services.AddDbContext<BethanysPieShopDbContext>(options =>
+            {
+                options.UseNpgsql(builder.Configuration["ConnectionStrings:BethanysPieShopDbContextConnection"]);
+            });
 
             var app = builder.Build();
 
