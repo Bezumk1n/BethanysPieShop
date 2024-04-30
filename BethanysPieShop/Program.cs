@@ -31,8 +31,11 @@ namespace BethanysPieShop
             app.UseStaticFiles();
             if(app.Environment.IsDevelopment())
                 app.UseDeveloperExceptionPage();
-            app.MapDefaultControllerRoute();
 
+            //app.MapDefaultControllerRoute();
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
             // Вызываем метод наполнения БД
             DbInitializer.Seed(app);
             app.Run();
