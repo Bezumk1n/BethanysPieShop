@@ -7,6 +7,7 @@ namespace BethanysPieShop.Data
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Pie> Pies { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
         public BethanysPieShopDbContext(DbContextOptions<BethanysPieShopDbContext> options) : base(options) { }
     }
 }

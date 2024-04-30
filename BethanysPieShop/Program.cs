@@ -1,5 +1,6 @@
 using BethanysPieShop.Data;
 using BethanysPieShop.Persistance;
+using BethanysPieShop.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace BethanysPieShop
@@ -15,6 +16,10 @@ namespace BethanysPieShop
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<IPieRepository, PieRepository>();
 
+            builder.Services.AddScoped<IShoppingCart, ShoppingCart>(serpviceProvider => ShoppingCart.GetCart(serpviceProvider));
+            builder.Services.AddSession();
+            builder.Services.AddHttpContextAccessor();
+
             // Включаем MVC
             builder.Services.AddControllersWithViews();
 
@@ -29,6 +34,8 @@ namespace BethanysPieShop
 
             // Добавляем Middleware
             app.UseStaticFiles();
+            app.UseSession();
+
             if(app.Environment.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
