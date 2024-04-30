@@ -15,5 +15,10 @@ namespace BethanysPieShop.Data
         {
             return _bethanysPieShopDbContext.Categories.OrderBy(q => q.CategoryName);
         }
+
+        public Category? GetCategoryById(Guid id)
+        {
+            return _bethanysPieShopDbContext.Categories.FirstOrDefault(q => q.CategoryId == id);
+        }
     }
 }
