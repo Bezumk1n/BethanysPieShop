@@ -38,9 +38,9 @@ namespace BethanysPieShop.Controllers
             PieListViewModel vm = PieListViewModel.Create(pies, currentCategory);
             return View(vm);
         }
-        public IActionResult Details(Guid id) 
+        public IActionResult Details(Guid pieId) 
         { 
-            var pie = _pieRepository.GetPieById(id);
+            var pie = _pieRepository.GetPieById(pieId);
             if (pie == null)
                 return NotFound();
             return View(pie);
