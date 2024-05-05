@@ -15,6 +15,7 @@ namespace BethanysPieShop
             // Для работы с репозиториями используем Scoped
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<IPieRepository, PieRepository>();
+            builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
             builder.Services.AddScoped<IShoppingCart, ShoppingCart>(serpviceProvider => ShoppingCart.GetCart(serpviceProvider));
             builder.Services.AddSession();
@@ -39,10 +40,10 @@ namespace BethanysPieShop
             if(app.Environment.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
-            //app.MapDefaultControllerRoute();
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id:guid?}");
+            app.MapDefaultControllerRoute();
+            //app.MapControllerRoute(
+            //    name: "default",
+            //    pattern: "{controller=Home}/{action=Index}/{id:guid?}");
 
             // Вызываем метод наполнения БД
             DbInitializer.Seed(app);

@@ -1,7 +1,7 @@
 ﻿@model Pie
 <div class="col">
     <div class="card pie-card">
-        <a asp-controller="Pie" asp-action="Details" asp-route-id="@Model.PieId">
+        <a asp-controller="Pie" asp-action="Details" asp-route-pieId="@Model.PieId">
             <img src="@Model.ImageThumbnailUrl" class="card-img-top" alt="@Model.Name" />
         </a>
         <div class="card-body pie-button">
