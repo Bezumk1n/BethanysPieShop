@@ -24,6 +24,7 @@ namespace BethanysPieShop.Controllers
             {
                 ModelState.AddModelError("", "Your cart is empty");
             }
+            // Server side валидация полей модели (правила валидации прописаны в самой модели Order)
             if (ModelState.IsValid)
             {
                 _orderRepository.CreateOrder(order);
