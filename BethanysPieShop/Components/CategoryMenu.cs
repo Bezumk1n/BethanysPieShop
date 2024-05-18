@@ -11,7 +11,7 @@ namespace BethanysPieShop.Components
         {
             _categoryRepository = categoryRepository;
         }
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
             var categories = _categoryRepository.AllCategories().OrderBy(q => q.CategoryName);
             return View(categories);

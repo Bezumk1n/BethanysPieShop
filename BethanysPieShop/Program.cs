@@ -23,6 +23,8 @@ namespace BethanysPieShop
 
             // Включаем MVC
             builder.Services.AddControllersWithViews();
+            // Включаем Razor Pages
+            builder.Services.AddRazorPages();
 
             var cs = builder.Configuration["ConnectionStrings:BethanysPieShopDbContextConnection"];
             // Регистрируем DbContext
@@ -44,6 +46,8 @@ namespace BethanysPieShop
             //app.MapControllerRoute(
             //    name: "default",
             //    pattern: "{controller=Home}/{action=Index}/{id:guid?}");
+
+            app.MapRazorPages();
 
             // Вызываем метод наполнения БД
             DbInitializer.Seed(app);

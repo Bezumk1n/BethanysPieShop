@@ -35,9 +35,16 @@
             </div>
             <hr />
             <div class="text-center d-grid">
-                <a class="btn btn-secondary" asp-controller="Order"
+                <a class="btn btn-secondary"
+                   asp-controller="Order"
                    asp-action="Checkout">
-                <h4>Check out now!</h4>
+                    <h4>MVC Check out now!</h4>
+                </a>
+            </div>
+            <div class="text-center d-grid">
+                <a class="btn btn-secondary"
+                   asp-page="/CheckoutPage">
+                    <h4>Razor Check out now!</h4>
                 </a>
             </div>
         </div>
