@@ -6,6 +6,7 @@ namespace BethanysPieShop.Persistance
     {
         IEnumerable<Pie> AllPies();
         IEnumerable<Pie> PiesOfTheWeek();
+        IEnumerable<Pie> SearchPies(string searchQuerry);
         Pie? GetPieById(Guid pieId);
     }
 }

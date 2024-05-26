@@ -25,6 +25,13 @@ namespace BethanysPieShop
             builder.Services.AddControllersWithViews();
             // Включаем Razor Pages
             builder.Services.AddRazorPages();
+            // Добавляем API
+            builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    // Настройка игнорирования циклов
+                    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+                });
 
             var cs = builder.Configuration["ConnectionStrings:BethanysPieShopDbContextConnection"];
             // Регистрируем DbContext
@@ -47,7 +54,10 @@ namespace BethanysPieShop
             //    name: "default",
             //    pattern: "{controller=Home}/{action=Index}/{id:guid?}");
 
+            // Для использования Razor pages
             app.MapRazorPages();
+            // Для использования контроллеров (в нашем случае не нужен, так как уже используется app.MapDefaultControllerRoute())
+            //app.MapControllers();
 
             // Вызываем метод наполнения БД
             DbInitializer.Seed(app);
