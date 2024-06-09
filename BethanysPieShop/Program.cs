@@ -21,6 +21,8 @@ namespace BethanysPieShop
             builder.Services.AddSession();
             builder.Services.AddHttpContextAccessor();
 
+            // Включаем Blazor server side
+            builder.Services.AddServerSideBlazor();
             // Включаем MVC
             builder.Services.AddControllersWithViews();
             // Включаем Razor Pages
@@ -53,11 +55,15 @@ namespace BethanysPieShop
             //app.MapControllerRoute(
             //    name: "default",
             //    pattern: "{controller=Home}/{action=Index}/{id:guid?}");
+           
+            // Для использования контроллеров (в нашем случае не нужен, так как уже используется app.MapDefaultControllerRoute())
+            //app.MapControllers();
 
             // Для использования Razor pages
             app.MapRazorPages();
-            // Для использования контроллеров (в нашем случае не нужен, так как уже используется app.MapDefaultControllerRoute())
-            //app.MapControllers();
+
+            app.MapBlazorHub();
+            app.MapFallbackToPage("app/{*catchall}", "/App/Index");
 
             // Вызываем метод наполнения БД
             DbInitializer.Seed(app);

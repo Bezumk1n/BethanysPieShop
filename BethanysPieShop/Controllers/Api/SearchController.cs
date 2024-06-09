@@ -34,7 +34,7 @@ namespace BethanysPieShop.Controllers.Api
             IEnumerable<Pie> pies = Enumerable.Empty<Pie>();
             if(!string.IsNullOrWhiteSpace(searchQuerry))
                 pies = _pieRepository.SearchPies(searchQuerry).ToArray();
-            return Ok(pies);
+            return new JsonResult(pies);
         }
     }
 }
